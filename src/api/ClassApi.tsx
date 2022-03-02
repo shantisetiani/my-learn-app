@@ -4,7 +4,7 @@ import {
   ClassDetail,
   JoinClassRequestBody,
   JoinClassResponse,
-} from "../models";
+} from "models";
 
 const config = () => ({
   headers: {
