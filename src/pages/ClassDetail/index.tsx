@@ -30,8 +30,11 @@ interface RegisterForm {
 const ClassDetail = () => {
   const params = useParams();
   const [form] = Form.useForm();
-  const [classData, setClassData] = useState<ClassDetailModel>();
+  const [classData, setClassData] = useState<ClassDetailModel>(
+    {} as ClassDetailModel
+  );
   const [loading, setLoading] = useState(true);
+  const [loadingRegister, setLoadingRegister] = useState(false);
   const [termsAndConditions, setTermsAndConditions] = useState(false);
 
   useEffect(() => {
@@ -52,9 +55,10 @@ const ClassDetail = () => {
       },
     };
 
-    const onFinish = async (values: RegisterForm) => {
+    const registerClass = async (values: RegisterForm) => {
+      setLoadingRegister(true);
       try {
-        const response = await api.class.joinClass({
+        await api.class.joinClass({
           classId: Number(params.id),
           attendeeFullName: values.fullname,
           attendeeEmail: values.email,
@@ -91,7 +95,7 @@ const ClassDetail = () => {
                 </Col>
                 <Col xs={12} md={8}>
                   :{" "}
-                  {classData?.mentors.find(
+                  {classData?.mentors?.find(
                     (mentor) => mentor.id === values.mentor
                   )?.name || "-"}
                 </Col>
@@ -100,12 +104,14 @@ const ClassDetail = () => {
           ),
         });
         form.resetFields();
+        setLoadingRegister(false);
       } catch (error) {
         Modal.error({
           title: "Gagal Mendaftar Kelas",
           content:
             "Terjadi masalah saat mendaftar kelas. Silahkan Coba beberapa saat lagi.",
         });
+        setLoadingRegister(false);
       }
     };
 
@@ -115,7 +121,7 @@ const ClassDetail = () => {
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        onFinish={onFinish}
+        onFinish={registerClass}
         autoComplete="off"
         validateMessages={validateMessages}
       >
@@ -124,7 +130,7 @@ const ClassDetail = () => {
           name="fullname"
           rules={[{ required: true }]}
         >
-          <Input />
+          <Input disabled={loadingRegister} />
         </Form.Item>
 
         <Form.Item
@@ -137,12 +143,12 @@ const ClassDetail = () => {
             },
           ]}
         >
-          <Input />
+          <Input disabled={loadingRegister} />
         </Form.Item>
 
         <Form.Item label="Mentor" name="mentor">
-          <Select>
-            {classData?.mentors.map((mentor) => (
+          <Select disabled={loadingRegister}>
+            {classData?.mentors?.map((mentor) => (
               <Select.Option value={mentor.id}>{mentor.name}</Select.Option>
             ))}
           </Select>
@@ -167,6 +173,7 @@ const ClassDetail = () => {
           <Checkbox
             checked={termsAndConditions}
             onChange={(e: any) => setTermsAndConditions(e.target.checked)}
+            disabled={loadingRegister}
           >
             Saya setuju dengan <a href="#">syarat dan ketentuan</a> yang berlaku
           </Checkbox>
@@ -178,7 +185,8 @@ const ClassDetail = () => {
           <Button
             type="primary"
             htmlType="submit"
-            disabled={!termsAndConditions}
+            disabled={!termsAndConditions || loadingRegister}
+            loading={loadingRegister}
           >
             Daftar
           </Button>
@@ -214,7 +222,7 @@ const ClassDetail = () => {
                 Daftar Mentor
               </div>
             </Col>
-            {classData?.mentors.map((mentor) => (
+            {classData?.mentors?.map((mentor) => (
               <Col xs={24} md={12} xl={6} xxl={4} key={mentor.id}>
                 <Card>
                   <Row>

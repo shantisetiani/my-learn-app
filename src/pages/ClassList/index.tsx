@@ -1,25 +1,23 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "api";
+import { useSelector } from "react-redux";
 import { Row, Col, Card, Skeleton } from "antd";
 import { AvailableClasses } from "models";
 import { ROUTES } from "routes";
 
 const ClassList = () => {
   const [availableClassData, setAvailableClassData] =
-    useState<AvailableClasses>();
+    useState<AvailableClasses>({} as AvailableClasses);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const classStorage = useSelector((state: any) => state.class);
 
   useEffect(() => {
-    getAvailableClasses();
-  }, []);
-
-  const getAvailableClasses = async () => {
-    const data = await api.class.getAvailableClasses();
-    setAvailableClassData(data);
-    setLoading(false);
-  };
+    if (classStorage?.items) {
+      setAvailableClassData(classStorage);
+      setLoading(false);
+    }
+  }, [classStorage]);
 
   return (
     <Row>
