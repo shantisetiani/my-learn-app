@@ -1,0 +1,64 @@
+/* Modify Ant Design CSS - Start */
+.ant-layout-content {
+  padding: 20px 50px;
+}
+/* Modify Ant Design CSS - End */
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.flex-container.space-between {
+  justify-content: space-between;
+}
+
+.ellipsis-paragraph {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mentor-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+  .ant-layout-content {
+    padding: 20px 24px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 480px) {
+  .ant-layout-content {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}

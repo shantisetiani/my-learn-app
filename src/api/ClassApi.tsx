@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   AvailableClasses,
-  ClassDetail,
+  ClassDetailModel,
   JoinClassRequestBody,
   JoinClassResponse,
 } from "models";
@@ -19,13 +19,13 @@ export default class ClassApi {
     this.API_URL = process.env.REACT_APP_API_URL;
   }
 
-  public async getAvailableClasses(): Promise<AvailableClasses[]> {
+  public async getAvailableClasses(): Promise<AvailableClasses> {
     return await (
       await axios.get(`${this.API_URL}/available-classes`, config())
     ).data;
   }
 
-  public async getClassDetail(classId: number): Promise<ClassDetail> {
+  public async getClassDetail(classId: number): Promise<ClassDetailModel> {
     return await (
       await axios.get(`${this.API_URL}/learning-class?id=${classId}`, config())
     ).data;

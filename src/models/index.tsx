@@ -13,13 +13,13 @@ export interface Mentor {
   description: string;
 }
 
-export interface ClassDetail extends ClassModel {
+export interface ClassDetailModel extends ClassModel {
   mentors: Mentor[];
   description: string;
 }
 
 export interface JoinClassRequestBody {
-  classId: string;
+  classId: number;
   attendeeFullName: string;
   attendeeEmail: string;
 }
