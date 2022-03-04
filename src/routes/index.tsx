@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ClassList from "pages/ClassList";
 import ClassDetail from "pages/ClassDetail";
 

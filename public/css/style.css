@@ -4,6 +4,7 @@
 }
 /* Modify Ant Design CSS - End */
 
+/* Modify Headings - Start */
 h1 {
   font-size: 32px;
 }
@@ -12,7 +13,9 @@ h2 {
   font-weight: bold;
   font-size: 28px;
 }
+/* Modify Headings - End */
 
+/* Custom Class - Start */
 .flex-container {
   display: flex;
   align-items: center;
@@ -37,20 +40,13 @@ h2 {
 .mobile-view {
   display: none !important;
 }
+/* Custom Class - End */
 
-@media screen and (max-width: 1200px) {
-}
-
-@media screen and (max-width: 992px) {
-}
-
+/* RESPONSIVE */
 @media screen and (max-width: 768px) {
   .ant-layout-content {
     padding: 20px 24px;
   }
-}
-
-@media screen and (max-width: 576px) {
 }
 
 @media screen and (max-width: 480px) {

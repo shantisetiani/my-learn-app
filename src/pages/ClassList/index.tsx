@@ -8,13 +8,13 @@ import { ROUTES } from "routes";
 const ClassList = () => {
   const [availableClassData, setAvailableClassData] =
     useState<AvailableClasses>({} as AvailableClasses);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // loading state of the page
   const navigate = useNavigate();
-  const classStorage = useSelector((state: any) => state.class);
+  const classStorage = useSelector((state: any) => state.class); // get class list from redux storage
 
   useEffect(() => {
     if (classStorage?.items) {
-      setAvailableClassData(classStorage);
+      setAvailableClassData(classStorage); // store the data to local state
       setLoading(false);
     }
   }, [classStorage]);

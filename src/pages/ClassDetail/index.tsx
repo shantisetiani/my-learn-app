@@ -20,6 +20,7 @@ import {
 } from "antd";
 import { ClassDetailModel } from "models";
 
+// Model for the input values in Register form
 interface RegisterForm {
   email: string;
   fullname: string;
@@ -33,20 +34,22 @@ const ClassDetail = () => {
   const [classData, setClassData] = useState<ClassDetailModel>(
     {} as ClassDetailModel
   );
-  const [loading, setLoading] = useState(true);
-  const [loadingRegister, setLoadingRegister] = useState(false);
+  const [loading, setLoading] = useState(true); // loading state of the page
+  const [loadingRegister, setLoadingRegister] = useState(false); // loading state while submitting Register form
   const [termsAndConditions, setTermsAndConditions] = useState(false);
 
   useEffect(() => {
     getClassDetail();
   }, []);
 
+  // Function to get and set the data
   const getClassDetail = async () => {
-    const data = await api.class.getClassDetail(Number(params.id));
-    setClassData(data);
+    const data = await api.class.getClassDetail(Number(params.id)); // call the API to get class detail data
+    setClassData(data); // store the data to local state
     setLoading(false);
   };
 
+  // Function to render the Register form
   const renderRegisterForm = () => {
     const validateMessages = {
       required: "${label} harus diisi",
@@ -55,14 +58,18 @@ const ClassDetail = () => {
       },
     };
 
+    // Function to register class when submit the form
     const registerClass = async (values: RegisterForm) => {
       setLoadingRegister(true);
       try {
+        // Submit the data using API
         await api.class.joinClass({
           classId: Number(params.id),
           attendeeFullName: values.fullname,
           attendeeEmail: values.email,
         });
+
+        // Open Success Modal
         Modal.success({
           title: "Berhasil Mendaftar Kelas",
           content: (
@@ -103,9 +110,10 @@ const ClassDetail = () => {
             </Space>
           ),
         });
-        form.resetFields();
+        form.resetFields(); // clear the input fields in the form
         setLoadingRegister(false);
       } catch (error) {
+        // Open Error Modal
         Modal.error({
           title: "Gagal Mendaftar Kelas",
           content:
