@@ -1,6 +1,6 @@
 import { AvailableClasses } from "models";
 
-export const storeClass = (classes: AvailableClasses) => {
+export const storeClass: any = (classes: AvailableClasses) => {
   return {
     type: "storeClass",
     data: classes,

@@ -1,11 +1,11 @@
 import { AvailableClasses } from "models";
 
-interface classAction {
+export interface classAction {
   type: string;
   data: AvailableClasses;
 }
 
-const classReducer = (state = [], action: classAction) => {
+const classReducer: any = (state = {}, action: classAction) => {
   switch (action.type) {
     case "storeClass":
       return action.data;

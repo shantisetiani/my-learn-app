@@ -34,7 +34,8 @@ export const RenderRouter = () => (
       return <Route {...route} />;
     })}
     <Route
-      element={() => <h1 className="text-center py-44">Page Not Found!</h1>}
+      path="*"
+      element={<h1 className="text-center py-44">Page Not Found!</h1>}
     />
   </Routes>
 );

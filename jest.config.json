@@ -1,0 +1,22 @@
+{
+  "setupFiles": ["./setupTests.Ts"],
+  "testRegex": "/*.test.ts$",
+  "collectCoverage": true,
+  "coverageReporters": ["lcov"],
+  "coverageDirectory": "test-coverage",
+  "coverageThreshold": {
+    "global": {
+      "branches": 0,
+      "functions": 0,
+      "lines": 0,
+      "statements": 0
+    }
+  },
+  "moduleDirectories": ["node_modules", "src"],
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "transform": {
+    "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+  },
+  "transformIgnorePatterns": ["node_modules/(?!variables/.*)"]
+}

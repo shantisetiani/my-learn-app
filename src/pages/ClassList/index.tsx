@@ -25,7 +25,7 @@ const ClassList = () => {
         <h2>Daftar Kelas yang Tersedia</h2>
         <Row gutter={[24, 12]}>
           {loading ? (
-            <Col span={12}>
+            <Col xs={24} md={12} xl={6} xxl={4}>
               <Card>
                 <Skeleton active />
               </Card>
