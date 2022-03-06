@@ -52,6 +52,7 @@ Launches the test runner and show the test coverage.<br />
 
 - <b>@testing-library/jest-dom</b>
 - <b>@testing-library/react</b>
+- <b>@testing-library/user-event</b>
 
 ---
 

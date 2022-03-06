@@ -19,6 +19,11 @@ const ClassList = () => {
     }
   }, [classStorage]);
 
+  useEffect(() => {
+    console.log(availableClassData);
+    console.log(availableClassData?.items?.length < 1);
+  }, [availableClassData]);
+
   return (
     <Row data-testid="classList">
       <Col span={24}>
@@ -30,8 +35,8 @@ const ClassList = () => {
                 <Skeleton active />
               </Card>
             </Col>
-          ) : (
-            availableClassData?.items.map((item) => (
+          ) : availableClassData?.items?.length > 0 ? (
+            availableClassData.items.map((item) => (
               <Col xs={24} md={12} xl={6} xxl={4} key={item.id}>
                 <Card
                   title={item.name}
@@ -48,6 +53,10 @@ const ClassList = () => {
                 </Card>
               </Col>
             ))
+          ) : (
+            <Col span={24}>
+              <h3>Kelas tidak ditemukan</h3>
+            </Col>
           )}
         </Row>
       </Col>
