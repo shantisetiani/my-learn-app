@@ -19,11 +19,6 @@ const ClassList = () => {
     }
   }, [classStorage]);
 
-  useEffect(() => {
-    console.log(availableClassData);
-    console.log(availableClassData?.items?.length < 1);
-  }, [availableClassData]);
-
   return (
     <Row data-testid="classList">
       <Col span={24}>
