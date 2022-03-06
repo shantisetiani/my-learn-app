@@ -20,7 +20,7 @@ const ClassList = () => {
   }, [classStorage]);
 
   return (
-    <Row>
+    <Row data-testid="classList">
       <Col span={24}>
         <h2>Daftar Kelas yang Tersedia</h2>
         <Row gutter={[24, 12]}>

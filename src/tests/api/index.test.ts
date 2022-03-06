@@ -58,7 +58,7 @@ describe("api.class", () => {
     expect(response).toEqual(classDetailDummy);
   });
 
-  it("Should called getClassDetail and return the data correctly", async () => {
+  it("Should called joinClass and return the data correctly", async () => {
     const requestBody = {
       classId: 99,
       attendeeFullName: "Giovanno",

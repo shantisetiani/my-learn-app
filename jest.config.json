@@ -1,5 +1,5 @@
 {
-  "setupFiles": ["./setupTests.Ts"],
+  "setupFiles": ["./src/setupTests.ts"],
   "testRegex": "/*.test.ts$",
   "collectCoverage": true,
   "coverageReporters": ["lcov"],
@@ -18,5 +18,8 @@
   "transform": {
     "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
   },
-  "transformIgnorePatterns": ["node_modules/(?!variables/.*)"]
+  "transformIgnorePatterns": [
+    "node_modules/(?!variables/.*)",
+    "./src/reportWebVitals.ts"
+  ]
 }

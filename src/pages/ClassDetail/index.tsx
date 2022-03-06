@@ -132,6 +132,7 @@ const ClassDetail = () => {
         onFinish={registerClass}
         autoComplete="off"
         validateMessages={validateMessages}
+        data-testid="registerForm"
       >
         <Form.Item
           label="Nama Lengkap"
@@ -204,7 +205,7 @@ const ClassDetail = () => {
   };
 
   return (
-    <Row>
+    <Row data-testid="classDetail">
       <Col span={24}>
         <Space size="middle">
           <Link to={ROUTES.CLASS_LIST}>

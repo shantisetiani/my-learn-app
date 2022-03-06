@@ -69,6 +69,7 @@ function App() {
       onSearch={(value) => onSearch({ value, path, goToClassList })}
       className="input-search"
       style={{ width: 200, paddingLeft: "15px" }}
+      data-testid="inputSearch"
     />
   );
 

@@ -18,7 +18,7 @@ describe("ClassApi", () => {
     expect(classApi.getAvailableClasses).toBeCalledWith();
   });
 
-  it("Should called getAvailableClasses correctly", async () => {
+  it("Should called getClassDetail correctly", async () => {
     const classId = 99;
 
     jest.fn(classApi.getClassDetail);
@@ -29,7 +29,7 @@ describe("ClassApi", () => {
     expect(classApi.getClassDetail).toBeCalledWith(classId);
   });
 
-  it("Should called getClassDetail correctly", async () => {
+  it("Should called joinClass correctly", async () => {
     const requestBody = {
       classId: 99,
       attendeeFullName: "Giovanno",

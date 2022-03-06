@@ -1,4 +1,3 @@
-// import classReducer, { classAction } from "../../src/redux/reducer";
 import classReducer, { classAction } from "redux/reducer";
 
 describe("Class Reducer", () => {

@@ -20,6 +20,10 @@ In the project directory, you can run:
 
 ### `npm start`
 
+or
+
+### `sh ./bin/run_web.sh`
+
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -29,7 +33,25 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
+
+or
+
+### `sh ./bin/run_test.sh`
+
+Launches the test runner and show the test coverage.<br />
 <br /><br />
+
+## Framework and Library Used in This Project
+
+- <b>Ant Design</b>, a design framework
+- <b>react-redux</b>, to use redux storage
+- <b>react-router-dom</b>, to create routing
+- <b>axios</b>, to call APIs
+
+### For Unit Testing
+
+- <b>@testing-library/jest-dom</b>
+- <b>@testing-library/react</b>
 
 ---
 
@@ -62,12 +84,17 @@ Launches the test runner in the interactive watch mode.<br />
     │   │   └── reducer.ts          # Class List page
     │   ├── routes
     │   │   └── index.tsx           # Contains routing of this web, render the router
+    │   ├── tests                   # Files for unit testing purpose
+    │   │   ├── api                 # Testing files for API
+    │   │   ├── pages               # Testing files for ClassList and ClassDetail page
+    │   │   ├── redux               # Testing files for actions and reducers
+    │   │   ├── routes              # Test routing
+    │   │   └── App.test.tsx        # Test rendering App
     │   ├── App.tsx                 # Main component of React App, contains main layout
     │   ├── index.css               # Main css
     │   ├── index.tsx               # Rendering ReactDOM and redux provider
     │   ├── setupTests.ts           # Setup for testing purpose
     │   └── store.ts                # Redux store, combine all reducers
-    ├── tests                       # Files for unit testing purpose
-    │   ├── api                     # Testing files for API
-    │   └── redux                   # Testing files for actions and reducers
+    │   .env.example                # File to setting the environment (copy, paste, and rename it to ".env")
+    │   package.json                # Contains dependencies, scripts, jest configuration, and other configuration of the App
     └── ...
