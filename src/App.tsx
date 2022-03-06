@@ -36,6 +36,7 @@ function App() {
 
   useEffect(() => {
     getAvailableClasses();
+    // eslint-disable-next-line
   }, []);
 
   // Function to get and set the data

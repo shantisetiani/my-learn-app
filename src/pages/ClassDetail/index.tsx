@@ -40,6 +40,7 @@ const ClassDetail = () => {
 
   useEffect(() => {
     getClassDetail();
+    // eslint-disable-next-line
   }, []);
 
   // Function to get and set the data
@@ -51,6 +52,7 @@ const ClassDetail = () => {
 
   // Function to render the Register form
   const renderRegisterForm = () => {
+    /* eslint-disable no-template-curly-in-string */
     const validateMessages = {
       required: "${label} harus diisi",
       types: {
@@ -236,7 +238,11 @@ const ClassDetail = () => {
                 <Card>
                   <Row>
                     <Col span={8}>
-                      <img src="/images/person-dummy.jpeg" width="100%" />
+                      <img
+                        src="/images/person-dummy.jpeg"
+                        width="100%"
+                        alt="person"
+                      />
                     </Col>
                     <Col>
                       <div className="mentor-name">{mentor.name}</div>

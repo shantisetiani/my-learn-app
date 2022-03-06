@@ -1,6 +1,6 @@
 # My Learn App
 
-My Learn App is a web application where you can see any information of available classes and register to join the class. you can learn many things using this app!
+My Learn App is a web application where you can see any information of available classes and register to join the class. You can learn many things using this app!
 
 ## Available Scripts
 
